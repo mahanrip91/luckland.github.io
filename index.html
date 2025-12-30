@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LuckLand — پیروز و سربلند</title>
+  <meta name="description" content="وب‌سایت رسمی LuckLand: قوانین، تیم استف، بخش‌ها، لینک‌ها و اطلاعات سرور." />
+  <style>
+    :root{
+      /* رنگ و گرادیان سبز–زرد */
+      --bg:linear-gradient(135deg,#1a4022 0%,#15300f 40%,#ffe96e 100%);
+      --card:#121826;
+      --muted:#c9c98a;
+      --text:#fdfdf5;
+      --accent:#9dff5c;
+      --accent2:#ffe96e;
+      --danger:#ff5d7a;
+      --warn:#ffc857;
+      --ok:#6ef3c0;
+      --link:#d4ff83;
+      --border:rgba(255,255,255,.08);
+      --shadow:0 6px 20px rgba(0,0,0,.35);
+      --grad:linear-gradient(135deg,#1a4022 0%,#15300f 100%);
+      --grad2:linear-gradient(135deg,#9dff5c 0%,#ffe96e 100%);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:IRANSans,Segoe UI,Roboto,system-ui,-apple-system,"Noto Naskh Arabic",Tahoma;
+      line-height:1.6;
+    }
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    header{
+      background:var(--grad);
+      border-bottom:1px solid var(--border);
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(120%) blur(6px);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:10px 20px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:800;
+      letter-spacing:.4px;
+    }
+    /* لوگو تصویری */
+    .logo img{
+      width:40px;height:40px;border-radius:10px;
+      box-shadow:0 6px 18px rgba(108,199,255,.35);
+      display:block;
+    }
+    .nav-links{display:flex;gap:12px;flex-wrap:wrap}
+    .nav-links a{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--border)}
+    .hero{
+      padding:38px 20px 28px;background:
+        radial-gradient(1200px 480px at 100% -80%,rgba(157,255,92,.20),transparent 50%),
+        radial-gradient(900px 360px at 0% -40%,rgba(255,233,110,.16),transparent 50%);
+      border-bottom:1px solid var(--border);
+    }
+    .hero h1{margin:0 0 12px;font-size:28px}
+    .hero .subtitle{color:var(--muted)}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .badge{padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.08);font-size:13px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
+    @media(min-width:860px){.grid{grid-template-columns:1.2fr .8fr}}
+    .card{
+      background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--shadow)
+    }
+    .card h2{margin:0 0 10px;font-size:20px}
+    .card h3{margin:16px 0 8px;font-size:16px;color:var(--muted)}
+    .list{display:grid;gap:8px}
+    .item{
+      padding:10px 12px;border:1px dashed var(--border);border-radius:12px;background:rgba(255,255,255,.06)
+    }
+    .item strong{color:#fff}
+    .table{width:100%;border-collapse:separate;border-spacing:0 8px;margin-top:8px}
+    .table thead th{
+      text-align:right;color:var(--muted);font-size:13px;padding:6px 10px
+    }
+    .table tbody td{
+      background:rgba(255,255,255,.06);border:1px solid var(--border);
+      padding:10px;border-radius:10px
+    }
+    .ranks{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+    .rank{
+      background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:14px;padding:10px 12px;
+    }
+    .rank .name{font-weight:700}
+    .rank .cap{color:var(--muted);font-size:13px}
+    .status{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.08)}
+    .status .dot{width:10px;height:10px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 6px rgba(110,243,192,.12)}
+    .sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid var(--border);margin:4px 0}
+    .footer{
+      margin-top:26px;padding:20px;border-top:1px solid var(--border);color:var(--muted);text-align:center
+    }
+    .cta{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:12px
+    }
+    .btn{
+      padding:10px 14px;border-radius:12px;border:1px solid var(--border);
+      background:rgba(255,255,255,.10);color:#fff;font-weight:600
+    }
+    .btn.primary{background:var(--grad2);color:#08121f;border:none}
+    .note{font-size:13px;color:var(--muted)}
+    .rule{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:10px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.06)}
+    .num{
+      background:rgba(255,255,255,.12);border:1px solid var(--border);color:#fff;
+      width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-weight:700
+    }
+    .warn{color:var(--warn);font-weight:700}
+    .danger{color:var(--danger);font-weight:700}
+    .ok{color:var(--ok);font-weight:700}
+    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:rgba(255,255,255,.12);padding:2px 6px;border-radius:6px;border:1px solid var(--border);font-size:12px}
+
+    /* فاصله‌گذاری برای سکشن‌ها تا زیر هدر نروند */
+    section[id] { scroll-margin-top: 90px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav container">
+    <div class="brand">
+      <div class="logo"><img src="LUCKLAND_LOGO.jpeg" alt="LuckLand Logo"></div>
+      <div>
+        LuckLand
+        <div class="note">پیروز و سربلند</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">اطلاعات</a>
+      <a href="#staff">تیم استف</a>
+      <a href="#rules">قوانین</a>
+      <a href="#sections">بخش‌ها</a>
+      <a href="#links">لینک‌ها</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero container">
+  <h1>📢 اطلاعات سرور LuckLand</h1>
+  <p class="subtitle">همه چیز درباره تیم استف، قوانین SMP، بخش‌ها و لینک‌های رسمی سرور.</p>
+  <div class="badges">
+    <div class="badge">نسخه: v1.0</div>
+    <div class="badge">بروزرسانی قوانین: پویا</div>
+    <div class="badge">وضعیت سرور: <span class="status"><span class="dot" style="background:var(--danger);box-shadow:0 0 0 6px rgba(255,93,122,.12)"></span> آفلاین</span></div>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="#rules">مشاهده قوانین</a>
+    <a class="btn" href="#staff">معرفی تیم استف</a>
+    <a class="btn" href="#sections">بخش‌های فعال</a>
+  </div>
+</section>
+
+<main class="container">
+
+  <section id="about" class="card">
+    <h2>ℹ️ معرفی کوتاه</h2>
+    <div class="split">
+      <div class="item">
+        <strong>هدف:</strong>
+        <div class="note">ارائه تجربه‌ی سرگرم‌کننده و رقابتی با نظم و احترام متقابل.</div>
+      </div>
+      <div class="item">
+        <strong>شعار:</strong>
+        <div>💎 لـاکـــ لـند ، پـیروز و سـربلنـد 💎</div>
+      </div>
+      <div class="item">
+        <strong>کانال رسمی:</strong>
+        <div><a href="https://t.me/LuckLand" target="_blank" rel="noopener">@LuckLand</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="staff" class="card">
+    <h2>🧑‍💻 تیم استف و سیستم ارتقا</h2>
+
+    <h3>ساختار ارتقا و ظرفیت‌ها</h3>
+    <div class="ranks">
+      <div class="rank">
+        <div class="name">Helper</div>
+        <div class="cap">ظرفیت: 8 🔔 | پذیرش: 5 ✅ | شروع از این سطح و ارتقا با فعالیت</div>
+      </div>
+      <div class="rank">
+        <div class="name">Acceptance</div>
+        <div class="cap">ظرفیت: 5 ✅ | نقش پذیرش و راهنمایی اولیه</div>
+      </div>
+      <div class="rank">
+        <div class="name">Builder</div>
+        <div class="cap">رنک خاص؛ فقط با تست مستقیم قابل اخذ</div>
+      </div>
+      <div class="rank">
+        <div class="name">AS-Owner</div>
+        <div class="cap">رنک خاص؛ فقط با تست مستقیم و تایید مالک</div>
+      </div>
+    </div>
+
+    <h3>ارتباط برای تست و پرسش</h3>
+    <div class="list">
+      <div class="item"><strong>درخواست تست استف:</strong> ↩️ <a href="https://t.me/TheIntrepid01" target="_blank" rel="noopener">@TheIntrepid01</a></div>
+      <div class="item"><strong>سوالات درباره رنک اپ:</strong> ↩️ <a href="https://t.me/AmirLuck" target="_blank" rel="noopener">@AmirLuck</a></div>
+    </div>
+
+    <h3>مسیر ارتقا</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>مرحله</th>
+          <th>شرط</th>
+          <th>تایید</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>شروع از Helper</td>
+          <td>فعالیت مستمر، رعایت قوانین، تعامل محترمانه</td>
+          <td>Owner</td>
+        </tr>
+        <tr>
+          <td>رنک‌های خاص (Builder / AS-Owner)</td>
+          <td>تست مستقیم فنی/رفتاری</td>
+          <td>Owner + تیم تست</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="rules" class="card">
+    <h2>📛 قوانین اس‌ام‌پی (SMP)</h2>
+    <div class="note">قوانین به‌صورت پویا بروزرسانی می‌شوند. گزارش تخلف همراه با مدرک به ↩️ <a href="https://t.me/AmirLuck" target="_blank" rel="noopener">@AmirLuck</a>.</div>
+
+    <div class="list" style="margin-top:12px">
+      <div class="rule">
+        <div class="num">1</div>
+        <div>توهین یا تهدید استف‌ها و پلیرها → <span class="danger">بن از SMP</span></div>
+      </div>
+      <div class="rule">
+        <div class="num">2</div>
+        <div>توهین به سرور → <span class="danger">بن از سرور</span></div>
+      </div>
+      <div class="rule">
+        <div class="num">3</div>
+        <div>تبلیغ در سرور → <span class="danger">بن از SMP</span></div>
+      </div>
+      <div class="rule">
+        <div class="num">4</div>
+        <div>استفاده از گلیچ/باگ → <span class="danger">بن + حذف آیتم‌های مربوطه</span></div>
+      </div>
+      <div class="rule">
+        <div class="num">5</div>
+        <div>رِید بیلد پلیرها → <span class="warn">بن ۳ روزه</span> (قانون موقت؛ ۵ روز بعد از ران منقضی)</div>
+      </div>
+      <div class="rule">
+        <div class="num">6</div>
+        <div>اسکین یا اسم نامناسب → <span class="danger">بن از سرور</span></div>
+      </div>
+      <div class="rule">
+        <div class="num">7</div>
+        <div>استفاده از چیت یا ایکس‌ری → <span class="danger">بن از سرور</span></div>
+      </div>
+      <div class="rule">
+        <div class="num">8</div>
+        <div>خرابکاری در اسپان → <span class="warn">بن ۳ روزه از SMP</span></div>
+      </div>
+    </div>
+
+    <div class="item" style="margin-top:12px">
+      <strong>گزارش تخلف:</strong> برای رسیدگی سریع، مدرک تصویری/ویدیویی ارسال شود ↩️ <a href="https://t.me/AmirLuck" target="_blank" rel="noopener">@AmirLuck</a>.
+    </div>
+  </section>
+
+  <section id="sections" class="card">
+    <h2>🎮 بخش‌های سرور</h2>
+    <div class="sections">
+      <div class="item">
+        <strong>SMP</strong>
+        <div class="note">سروایوال با اقتصاد منظم و قوانین مشخص.</div>
+        <div class="chip">قوانین اختصاصی فعال</div>
+        <div class="chip">ایونت‌های دوره‌ای</div>
+      </div>
+      <div class="item">
+        <strong>Arcade</strong>
+        <div class="note">مینی‌گیم‌های سریع و سرگرم‌کننده.</div>
+        <div class="chip">Leaderboard</div>
+        <div class="chip">جوایز هفتگی</div>
+      </div>
+      <div class="item">
+        <strong>BedWars</strong>
+        <div class="note">نبرد تیمی با استراتژی و دفاع از تخت.</div>
+        <div class="chip">مپ‌های منتخب</div>
+        <div class="chip">Anti-cheat</div>
+      </div>
+      <div class="item">
+        <strong>… و بخش‌های دیگر</strong>
+        <div class="note">به‌مرور اضافه و اطلاع‌رسانی در کانال.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="links" class="card">
+    <h2>📲 لینک‌ها و ارتباطات</h2>
+    <div class="split">
+      <div class="item">
+        <strong>کانال اصلی:</strong> <a href="https://t.me/LuckLand" target="_blank" rel="noopener">@LuckLand</a>
+      </div>
+      <div class="item">
+        <strong>Owner / تست استف:</strong> <a href="https://t.me/TheIntrepid01" target="_blank" rel="noopener">@TheIntrepid01</a>
+      </div>
+      <div class="item">
+        <strong>رنک اپ و گزارش تخلف:</strong> <a href="https://t.me/AmirLuck" target="_blank" rel="noopener">@AmirLuck</a>
+      </div>
+    </div>
+    <div class="item">
+      <strong>راهنمای سریع:</strong>
+      <div>
+        برای درخواست تست، پیام بدهید و سطح فعلی + ساعت‌های فعالیت را ذکر کنید.
+        اگر نیاز به آپدیت قوانین دارید، تغییرات در کانال اطلاع‌رسانی می‌شود.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>© LuckLand — همه حقوق محفوظ است.</div>
+  <div class="note">ساخته شده با عشق برای جامعه LuckLand. پیروز و سربلند.</div>
+</footer>
+
+</body>
+</html>

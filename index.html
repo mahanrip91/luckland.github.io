@@ -7,7 +7,6 @@
   <meta name="description" content="وب‌سایت رسمی LuckLand: قوانین، تیم استف، بخش‌ها، لینک‌ها و اطلاعات سرور." />
   <style>
     :root{
-      /* رنگ و گرادیان سبز–زرد */
       --bg:linear-gradient(135deg,#1a4022 0%,#15300f 40%,#ffe96e 100%);
       --card:#121826;
       --muted:#c9c98a;
@@ -29,6 +28,8 @@
       margin:0;background:var(--bg);color:var(--text);
       font-family:IRANSans,Segoe UI,Roboto,system-ui,-apple-system,"Noto Naskh Arabic",Tahoma;
       line-height:1.6;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
     }
     a{color:var(--link);text-decoration:none}
     a:hover{text-decoration:underline}
@@ -47,7 +48,6 @@
       display:flex;align-items:center;gap:12px;font-weight:800;
       letter-spacing:.4px;
     }
-    /* لوگو تصویری */
     .logo img{
       width:40px;height:40px;border-radius:10px;
       box-shadow:0 6px 18px rgba(108,199,255,.35);
@@ -56,9 +56,7 @@
     .nav-links{display:flex;gap:12px;flex-wrap:wrap}
     .nav-links a{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--border)}
     .hero{
-      padding:38px 20px 28px;background:
-        radial-gradient(1200px 480px at 100% -80%,rgba(157,255,92,.20),transparent 50%),
-        radial-gradient(900px 360px at 0% -40%,rgba(255,233,110,.16),transparent 50%);
+      padding:38px 20px 28px;background:var(--bg);
       border-bottom:1px solid var(--border);
     }
     .hero h1{margin:0 0 12px;font-size:28px}
@@ -114,10 +112,7 @@
     }
     .warn{color:var(--warn);font-weight:700}
     .danger{color:var(--danger);font-weight:700}
-    .ok{color:var(--ok);font-weight:700}
-    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:rgba(255,255,255,.12);padding:2px 6px;border-radius:6px;border:1px solid var(--border);font-size:12px}
-
-    /* فاصله‌گذاری برای سکشن‌ها تا زیر هدر نروند */
+    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:rgba(255,255,255,.12);padding:2px 6px;border-radius:6px;border:1px solid var(--border);font-size:12px;user-select: all;}
     section[id] { scroll-margin-top: 90px; }
   </style>
 </head>
@@ -148,7 +143,7 @@
   <div class="badges">
     <div class="badge">نسخه: v1.0</div>
     <div class="badge">بروزرسانی قوانین: پویا</div>
-    <div class="badge">وضعیت سرور: <span class="status"><span class="dot" style="background:var(--danger);box-shadow:0 0 0 6px rgba(255,93,122,.12)"></span> آفلاین</span></div>
+    <div class="badge">وضعیت سرور: <span class="status"><span class="dot" style="background:#ff5d7a;box-shadow:0 0 0 6px rgba(255,93,122,.12)"></span> آفلاین</span></div>
   </div>
   <div class="cta">
     <a class="btn primary" href="#rules">مشاهده قوانین</a>
@@ -159,8 +154,9 @@
 
 <main class="container">
 
+  <!-- اطلاعات سرور -->
   <section id="about" class="card">
-    <h2>ℹ️ معرفی کوتاه</h2>
+    <h2>ℹ️ اطلاعات سرور و ارتباطات</h2>
     <div class="split">
       <div class="item">
         <strong>هدف:</strong>
@@ -171,156 +167,77 @@
         <div>💎 لـاکـــ لـند ، پـیروز و سـربلنـد 💎</div>
       </div>
       <div class="item">
-        <strong>کانال رسمی:</strong>
-        <div><a href="https://t.me/LuckLand" target="_blank" rel="noopener">@LuckLand</a></div>
+        <strong>اطلاعات سرور 🍀</strong>
+        <div class="note">
+          <code>IP: PLAY.LLMC.IR</code><br>
+          <code>IP²: 46.38.138.121</code><br>
+          <code>PORT: 19132</code>
+        </div>
+      </div>
+      <div class="item">
+        <strong>ارتباطات رسمی 📲</strong>
+        <div class="note">
+          <code>Channel: @LuckLand</code><br>
+          <code>Shop: @LuckShop</code><br>
+          <code>Support: @AmirLuck</code><br>
+          <code>Support: @AmirDvop</code><br>
+          <code>Management: @LuckManager</code>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- قوانین -->
+  <section id="rules" class="card">
+    <h2>📛 قوانین SMP</h2>
+    <div class="list" style="margin-top:12px">
+      <div class="rule"><div class="num">1</div><div>توهین یا تهدید استف‌ها و پلیرها → <span class="danger">بن از SMP</span></div></div>
+      <div class="rule"><div class="num">2</div><div>توهین به سرور → <span class="danger">بن از سرور</span></div></div>
+      <div class="rule"><div class="num">3</div><div>تبلیغ در سرور → <span class="danger">بن از SMP</span></div></div>
+      <div class="rule"><div class="num">4</div><div>استفاده از گلیچ/باگ → <span class="danger">بن + حذف آیتم‌های مربوطه</span></div></div>
+      <div class="rule"><div class="num">5</div><div>رِید بیلد پلیرها → <span class="warn">بن ۳ روزه</span> (قانون موقت؛ ۵ روز بعد از ران منقضی)</div></div>
+      <div class="rule"><div class="num">6</div><div>اسکین یا اسم نامناسب → <span class="danger">بن از سرور</span></div></div>
+      <div class="rule"><div class="num">7</div><div>استفاده از چیت یا ایکس‌ری → <span class="danger">بن از سرور</span></div></div>
+      <div class="rule"><div class="num">8</div><div>خرابکاری در اسپان → <span class="warn">بن ۳ روزه از SMP</span></div></div>
+    </div>
+    <div class="note" style="margin-top:10px">📌 قوانین آپدیت می‌شوند.</div>
+  </section>
+
+  <!-- تیم استف -->
   <section id="staff" class="card">
     <h2>🧑‍💻 تیم استف و سیستم ارتقا</h2>
-
     <h3>ساختار ارتقا و ظرفیت‌ها</h3>
     <div class="ranks">
-      <div class="rank">
-        <div class="name">Helper</div>
-        <div class="cap">ظرفیت: 8 🔔 | پذیرش: 5 ✅ | شروع از این سطح و ارتقا با فعالیت</div>
-      </div>
-      <div class="rank">
-        <div class="name">Acceptance</div>
-        <div class="cap">ظرفیت: 5 ✅ | نقش پذیرش و راهنمایی اولیه</div>
-      </div>
-      <div class="rank">
-        <div class="name">Builder</div>
-        <div class="cap">رنک خاص؛ فقط با تست مستقیم قابل اخذ</div>
-      </div>
-      <div class="rank">
-        <div class="name">AS-Owner</div>
-        <div class="cap">رنک خاص؛ فقط با تست مستقیم و تایید مالک</div>
-      </div>
-    </div>
-
-    <h3>ارتباط برای تست و پرسش</h3>
-    <div class="list">
-      <div class="item"><strong>درخواست تست استف:</strong> ↩️ <a href="https://t.me/TheIntrepid01" target="_blank" rel="noopener">@TheIntrepid01</a></div>
-      <div class="item"><strong>سوالات درباره رنک اپ:</strong> ↩️ <a href="https://t.me/AmirLuck" target="_blank" rel="noopener">@AmirLuck</a></div>
-    </div>
-
-    <h3>مسیر ارتقا</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>مرحله</th>
-          <th>شرط</th>
-          <th>تایید</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>شروع از Helper</td>
-          <td>فعالیت مستمر، رعایت قوانین، تعامل محترمانه</td>
-          <td>Owner</td>
-        </tr>
-        <tr>
-          <td>رنک‌های خاص (Builder / AS-Owner)</td>
-          <td>تست مستقیم فنی/رفتاری</td>
-          <td>Owner + تیم تست</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="rules" class="card">
-    <h2>📛 قوانین اس‌ام‌پی (SMP)</h2>
-    <div class="note">قوانین به‌صورت پویا بروزرسانی می‌شوند. گزارش تخلف همراه با مدرک به ↩️ <a href="https://t.me/AmirLuck" target="_blank" rel="noopener">@AmirLuck</a>.</div>
-
-    <div class="list" style="margin-top:12px">
-      <div class="rule">
-        <div class="num">1</div>
-        <div>توهین یا تهدید استف‌ها و پلیرها → <span class="danger">بن از SMP</span></div>
-      </div>
-      <div class="rule">
-        <div class="num">2</div>
-        <div>توهین به سرور → <span class="danger">بن از سرور</span></div>
-      </div>
-      <div class="rule">
-        <div class="num">3</div>
-        <div>تبلیغ در سرور → <span class="danger">بن از SMP</span></div>
-      </div>
-      <div class="rule">
-        <div class="num">4</div>
-        <div>استفاده از گلیچ/باگ → <span class="danger">بن + حذف آیتم‌های مربوطه</span></div>
-      </div>
-      <div class="rule">
-        <div class="num">5</div>
-        <div>رِید بیلد پلیرها → <span class="warn">بن ۳ روزه</span> (قانون موقت؛ ۵ روز بعد از ران منقضی)</div>
-      </div>
-      <div class="rule">
-        <div class="num">6</div>
-        <div>اسکین یا اسم نامناسب → <span class="danger">بن از سرور</span></div>
-      </div>
-      <div class="rule">
-        <div class="num">7</div>
-        <div>استفاده از چیت یا ایکس‌ری → <span class="danger">بن از سرور</span></div>
-      </div>
-      <div class="rule">
-        <div class="num">8</div>
-        <div>خرابکاری در اسپان → <span class="warn">بن ۳ روزه از SMP</span></div>
-      </div>
-    </div>
-
-    <div class="item" style="margin-top:12px">
-      <strong>گزارش تخلف:</strong> برای رسیدگی سریع، مدرک تصویری/ویدیویی ارسال شود ↩️ <a href="https://t.me/AmirLuck" target="_blank" rel="noopener">@AmirLuck</a>.
+      <div class="rank"><div class="name">Helper</div><div class="cap">ظرفیت: 8 🔔 | پذیرش: 5 ✅ | شروع از این سطح و ارتقا با فعالیت</div></div>
+      <div class="rank"><div class="name">Acceptance</div><div class="cap">ظرفیت: 5 ✅ | نقش پذیرش و راهنمایی اولیه</div></div>
+      <div class="rank"><div class="name">Builder</div><div class="cap">رنک خاص؛ فقط با تست مستقیم قابل اخذ</div></div>
+      <div class="rank"><div class="name">AS-Owner</div><div class="cap">رنک خاص؛ فقط با تست مستقیم و تایید مالک</div></div>
     </div>
   </section>
 
+  <!-- بخش‌های سرور -->
   <section id="sections" class="card">
     <h2>🎮 بخش‌های سرور</h2>
     <div class="sections">
-      <div class="item">
-        <strong>SMP</strong>
-        <div class="note">سروایوال با اقتصاد منظم و قوانین مشخص.</div>
-        <div class="chip">قوانین اختصاصی فعال</div>
-        <div class="chip">ایونت‌های دوره‌ای</div>
-      </div>
-      <div class="item">
-        <strong>Arcade</strong>
-        <div class="note">مینی‌گیم‌های سریع و سرگرم‌کننده.</div>
-        <div class="chip">Leaderboard</div>
-        <div class="chip">جوایز هفتگی</div>
-      </div>
-      <div class="item">
-        <strong>BedWars</strong>
-        <div class="note">نبرد تیمی با استراتژی و دفاع از تخت.</div>
-        <div class="chip">مپ‌های منتخب</div>
-        <div class="chip">Anti-cheat</div>
-      </div>
-      <div class="item">
-        <strong>… و بخش‌های دیگر</strong>
-        <div class="note">به‌مرور اضافه و اطلاع‌رسانی در کانال.</div>
-      </div>
+      <div class="item"><strong>SMP</strong><div class="note">سروایوال با اقتصاد منظم و قوانین مشخص.</div><div class="chip">قوانین اختصاصی فعال</div><div class="chip">ایونت‌های دوره‌ای</div></div>
+      <div class="item"><strong>Arcade</strong><div class="note">مینی‌گیم‌های سریع و سرگرم‌کننده.</div><div class="chip">Leaderboard</div><div class="chip">جوایز هفتگی</div></div>
+      <div class="item"><strong>BedWars</strong><div class="note">نبرد تیمی با استراتژی و دفاع از تخت.</div><div class="chip">مپ‌های منتخب</div><div class="chip">Anti-cheat</div></div>
+      <div class="item"><strong>… و بخش‌های دیگر</strong><div class="note">به‌مرور اضافه و اطلاع‌رسانی در کانال.</div></div>
     </div>
   </section>
 
+  <!-- لینک‌ها -->
   <section id="links" class="card">
     <h2>📲 لینک‌ها و ارتباطات</h2>
     <div class="split">
-      <div class="item">
-        <strong>کانال اصلی:</strong> <a href="https://t.me/LuckLand" target="_blank" rel="noopener">@LuckLand</a>
-      </div>
-      <div class="item">
-        <strong>Owner / تست استف:</strong> <a href="https://t.me/TheIntrepid01" target="_blank" rel="noopener">@TheIntrepid01</a>
-      </div>
-      <div class="item">
-        <strong>رنک اپ و گزارش تخلف:</strong> <a href="https://t.me/AmirLuck" target="_blank" rel="noopener">@AmirLuck</a>
-      </div>
+      <div class="item"><strong>کانال رسمی:</strong><div><a href="https://rubika.ir/joinc/DABDHJDH0MBLGMOQCGJJYZYOUODGMBXZ" target="_blank" rel="noopener">LuckLand_Channel</a></div></div>
+      <div class="item"><strong>محافظ کانال‌ها:</strong><div><a href="rubika://@LuckLand">@LuckLand</a></div></div>
+      <div class="item"><strong>گپ:</strong><div><a href="https://rubika.ir/joing/HAJCFFFH0XDTBEEHANCSUEWITRVGUNIM" target="_blank" rel="noopener">LuckLand_Gap</a></div></div>
+      <div class="item"><strong>لینک چنل تلگرام:</strong><div><a href="https://t.me/LuckLandMc" target="_blank" rel="noopener">LuckLand_Telegeram</a></div></div>
     </div>
     <div class="item">
       <strong>راهنمای سریع:</strong>
-      <div>
-        برای درخواست تست، پیام بدهید و سطح فعلی + ساعت‌های فعالیت را ذکر کنید.
-        اگر نیاز به آپدیت قوانین دارید، تغییرات در کانال اطلاع‌رسانی می‌شود.
-      </div>
+      <div>برای درخواست تست، پیام بدهید و سطح فعلی + ساعت‌های فعالیت را ذکر کنید. اگر نیاز به آپدیت قوانین دارید، تغییرات در کانال اطلاع‌رسانی می‌شود.</div>
     </div>
   </section>
 
